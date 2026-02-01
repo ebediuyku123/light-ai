@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Ultra Modern Purple Neon Theme */
+  --background: 265 40% 5%;       /* Deep dark purple background */
+  --foreground: 265 10% 98%;      /* Soft white text */
+  
+  --primary: 280 80% 65%;         /* Vibrant Neon Purple */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 270 90% 60%;      /* Electric Violet */
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 265 30% 12%;           /* Subtle dark purple bg */
+  --muted-foreground: 265 15% 70%;/* Greyish purple text */
+  
+  --accent: 290 100% 70%;         /* Neon Magenta Accent */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 265 30% 18%;
+  --input: 265 30% 18%;
+  --ring: 280 80% 65%;
+  
+  --radius: 1.25rem;
+  
+  /* Fonts */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+/* Custom Scrollbar for sleek look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Neon Glow Utilities */
+.neon-text {
+  text-shadow: 0 0 10px hsla(var(--primary), 0.5), 0 0 20px hsla(var(--primary), 0.3);
+}
+
+.neon-border {
+  box-shadow: 0 0 5px hsla(var(--secondary), 0.5), inset 0 0 5px hsla(var(--secondary), 0.2);
+}
+
+.glass-panel {
+  @apply bg-background/60 backdrop-blur-xl border border-white/10;
+}
